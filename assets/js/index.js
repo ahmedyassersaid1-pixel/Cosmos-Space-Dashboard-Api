@@ -494,6 +494,9 @@ async function getPlanet() {
       plnetCoparesion[i].children[6].children[0].classList.add("bg-3");
       plnetCoparesion[i].children[6].children[0].classList.add("color-3");
     }
+    if (planetData[i].englishName=="Earth") {
+      plnetCoparesion[i].classList.add("bg-blue-500/5")
+    }
   }
 }
 getPlanet();
