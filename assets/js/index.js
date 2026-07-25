@@ -372,6 +372,19 @@ async function getUpcoming() {
   }
 }
 
+// colors
+let colors = {
+  Uranus: "#22D3EE",
+  Neptune: "#2563EB",
+  Jupiter: "#FDBA74",
+  Mars: "#EF4444",
+  Mercury: "#6B7280",
+  Saturn: "#FDE047",
+  Earth: "#3B82F6",
+  Venus: "#FB923C",
+};
+let { Earth, Jupiter, Mars, Mercury, Neptune, Saturn, Uranus, Venus } = colors;
+
 getUpcoming();
 // get planets
 async function getPlanet() {
@@ -380,7 +393,7 @@ async function getPlanet() {
   );
   let data = await res.json();
   planetData = data.bodies;
-  // console.log(planetData);
+  console.log(planetData);
 
   for (let i = 0; i < planetCard.length; i++) {
     planetCard[i].children[0].children[0].setAttribute(
@@ -494,12 +507,54 @@ async function getPlanet() {
       plnetCoparesion[i].children[6].children[0].classList.add("bg-3");
       plnetCoparesion[i].children[6].children[0].classList.add("color-3");
     }
-    if (planetData[i].englishName=="Earth") {
-      plnetCoparesion[i].classList.add("bg-blue-500/5")
-      console.log(plnetCoparesion[i]);
-
+    if (planetData[i].englishName == "Earth") {
+      plnetCoparesion[i].classList.add("bg-blue-500/5");
+      // console.log(plnetCoparesion[i]);
     }
-    
+
+    if (planetData[i].englishName == "Uranus") {
+      plnetCoparesion[
+        i
+      ].children[0].children[0].children[0].style.backgroundColor = `${Uranus}`;
+    }
+    if (planetData[i].englishName == "Neptune") {
+      plnetCoparesion[
+        i
+      ].children[0].children[0].children[0].style.backgroundColor =
+        `${Neptune}`;
+    }
+    if (planetData[i].englishName == "Jupiter") {
+      plnetCoparesion[
+        i
+      ].children[0].children[0].children[0].style.backgroundColor =
+        `${Jupiter}`;
+    }
+    if (planetData[i].englishName == "Mars") {
+      plnetCoparesion[
+        i
+      ].children[0].children[0].children[0].style.backgroundColor = `${Mars}`;
+    }
+    if (planetData[i].englishName == "Mercury") {
+      plnetCoparesion[
+        i
+      ].children[0].children[0].children[0].style.backgroundColor =
+        `${Mercury}`;
+    }
+    if (planetData[i].englishName == "Saturn") {
+      plnetCoparesion[
+        i
+      ].children[0].children[0].children[0].style.backgroundColor = `${Saturn}`;
+    }
+    if (planetData[i].englishName == "Earth") {
+      plnetCoparesion[
+        i
+      ].children[0].children[0].children[0].style.backgroundColor = `${Earth}`;
+    }
+    if (planetData[i].englishName == "Venus") {
+      plnetCoparesion[
+        i
+      ].children[0].children[0].children[0].style.backgroundColor = `${Venus}`;
+    }
   }
 }
 getPlanet();
