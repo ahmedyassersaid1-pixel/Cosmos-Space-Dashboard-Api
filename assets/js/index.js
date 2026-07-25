@@ -488,7 +488,7 @@ async function getPlanet() {
         orbitDays.toFixed() + " days";
     } else {
       plnetCoparesion[i].children[4].textContent =
-        (orbitDays / 365.25).toFixed(2) + " years";
+        (orbitDays / 365.25).toFixed(1) + " years";
     }
     if (planetData[i].moons === null) {
       plnetCoparesion[i].children[5].textContent = "0";
