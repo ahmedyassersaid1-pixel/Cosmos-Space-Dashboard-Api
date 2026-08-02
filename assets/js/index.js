@@ -414,17 +414,17 @@ async function getPlanet() {
   }
 
   let axis = planetData[6].semimajorAxis / 1000000;
-  imageImage.setAttribute("sec", `${planetData[6].image}`);
-  imageTitle.textContent = planetData[6].englishName;
-  imageDesc.textContent = planetData[6].description;
-  planetAxis.textContent = axis.toFixed(1) + "M km";
-  planetRadius.textContent = planetData[6].meanRadius.toFixed() + " km";
+  // imageImage.setAttribute("sec", `${planetData[6].image}`);
+  // imageTitle.textContent = planetData[6].englishName;
+  // imageDesc.textContent = planetData[6].description;
+  // planetAxis.textContent = axis.toFixed(1) + "M km";
+  // planetRadius.textContent = planetData[6].meanRadius.toFixed() + " km";
   planetMass.textContent = planetData[6].mass.massValue + " × 10^24 kg";
-  planetDensity.textContent = planetData[6].density.toFixed(2) + " g/cm³";
-  planetOrbital.textContent = planetData[6].sideralOrbit.toFixed(2) + " days";
-  planetRotation.textContent =
-    planetData[6].sideralRotation.toFixed(2) + " hours";
-  planetGravity.textContent = planetData[6].gravity.toFixed(2) + " m/s²";
+  // planetDensity.textContent = planetData[6].density.toFixed(2) + " g/cm³";
+  // planetOrbital.textContent = planetData[6].sideralOrbit.toFixed(2) + " days";
+  // planetRotation.textContent =
+  //   planetData[6].sideralRotation.toFixed(2) + " hours";
+  // planetGravity.textContent = planetData[6].gravity.toFixed(2) + " m/s²";
   // planet-discoverer
   planetDiscoverer = document.querySelector("#planet-discoverer");
   planetDiscovererDate = document.querySelector("#planet-discovery-date");
@@ -461,9 +461,28 @@ async function getPlanet() {
   planetTemp.textContent = `${planetData[6].avgTemp}°C`;
   planetEscape.textContent = `${(planetData[6].escape / 1000).toFixed(2)} km/s`;
   // planet-comparison-tbody
+  const planetsGrid = document.getElementById("planets-grid");
   let plnetCoparesion = document.querySelectorAll(
     "#planet-comparison-tbody tr",
   );
+  for (let index = 0; index < planetCard.length; index++) {
+    planetCard[index].addEventListener("click", function (e) {
+      imageImage.setAttribute("src", `${planetData[index].image}`);
+      imageTitle.textContent = planetData[index].englishName;
+      imageDesc.textContent = planetData[index].description;
+      planetAxis.textContent =
+        (planetData[index].semimajorAxis / 1000000).toFixed(1) + "M km";
+      planetRadius.textContent = planetData[index].meanRadius.toFixed() + " km";
+      planetDensity.textContent =
+        planetData[index].density.toFixed(2) + " g/cm³";
+      planetOrbital.textContent =
+        planetData[index].sideralOrbit.toFixed(2) + " days";
+      planetRotation.textContent =
+        planetData[index].sideralRotation.toFixed(2) + " hours";
+      planetGravity.textContent =
+        planetData[index].gravity.toFixed(2) + " m/s²";
+    });
+  }
   for (let i = 0; i < plnetCoparesion.length; i++) {
     plnetCoparesion[i].children[0].children[0].children[1].textContent =
       planetData[i].englishName;
